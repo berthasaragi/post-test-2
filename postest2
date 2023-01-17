@@ -52,7 +52,7 @@ def cari():
                 print("zaki berada di index ke-",z)
 data = ['daiva', 'zaki', ['wahyu', 'zaki'], 'shafa', ['zaki', 'aji', 'wahyu'], 'zaki']
 data2=[]
-data3=[]
+data3=()
 x = "zaki"
 
 def sorting():
@@ -68,6 +68,6 @@ def sorting():
         data2.insert(j,data3[j])
     print("setelah di urutkan=",data2)
 
-sorting
-cari
+sorting()
+cari()
 
