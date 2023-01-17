@@ -1,0 +1,73 @@
+def partition(l, bwh, atas):
+    pivot = l[atas]
+    batas = bwh + 1
+    for current in range(bwh + 1, atas):
+        if l[current] < pivot:
+            l[batas],l[current]=l[current],l[batas] 
+            batas += 1
+    l[batas - 1],l[bwh] = l[bwh],l[batas - 1]
+    return batas
+
+def quicksort(l, bwh, atas): 
+    if atas <= bwh :
+      return
+    index = partition(l, bwh, atas) 
+    quicksort(l, bwh, index-1)
+    quicksort(l, index+1, atas)
+    return l
+
+def mencari(isi, x, n):
+    fibonaci2 = 0
+    fibonaci1 = 1
+    fibonaci = fibonaci2 + fibonaci1
+    while (fibonaci < n):
+        fibonaci2 = fibonaci1
+        fibonaci1 = fibonaci
+        fibonaci = fibonaci2+fibonaci1
+    offset = -1
+    while (fibonaci > 1):
+        i = min(offset+fibonaci2, n-1)
+        if (isi[i] < x):
+            fibonaci = fibonaci1
+            fibonaci1 = fibonaci2
+            fibonaci2 = fibonaci-fibonaci1
+            offset=i
+        elif (isi[i] > x):
+            fibonaci = fibonaci2
+            fibonaci1 = fibonaci1-fibonaci2
+            fibonaci2 = fibonaci-fibonaci1
+        else:
+            return i
+    if(fibonaci1 and isi[n-1]== x):
+        return n-1
+    return -1
+def cari():
+    print("Hasil dari pencarian Zaki =")
+    for z in range(len(data2)):
+        if type(data2[z]) == list:
+            isi = mencari(data[z], "zaki", len(data[z]))
+            print("zaki berada di array index ke-",z)
+        else:
+            if data2[z] == x:
+                print("zaki berada di index ke-",z)
+data = ['daiva', 'zaki', ['wahyu', 'zaki'], 'shafa', ['zaki', 'aji', 'wahyu'], 'zaki']
+data2=[]
+data3=[]
+x = "zaki"
+
+def sorting():
+    print("sebelum di urutkan =",data)
+    for i in range(len(data)):
+        if type(data[i]) != str:
+            data3[i] = data[i]
+        else:
+            data2.append(data[i])
+            quicksort(data2,0,len(data2))
+    for j in data3:
+        quicksort(data3[j],data3[j])
+        data2.insert(j,data3[j])
+    print("setelah di urutkan=",data2)
+
+sorting
+cari
+
