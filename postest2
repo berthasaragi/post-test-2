@@ -1,5 +1,5 @@
 def partition(l, bwh, atas):
-    pivot = l[atas]
+    pivot = l[bwh]
     batas = bwh + 1
     for current in range(bwh + 1, atas):
         if l[current] < pivot:
@@ -13,7 +13,7 @@ def quicksort(l, bwh, atas):
       return
     index = partition(l, bwh, atas) 
     quicksort(l, bwh, index-1)
-    quicksort(l, index+1, atas)
+    quicksort(l, index, atas)
     return l
 
 def mencari(isi, x, n):
@@ -52,7 +52,7 @@ def cari():
                 print("zaki berada di index ke-",z)
 data = ['daiva', 'zaki', ['wahyu', 'zaki'], 'shafa', ['zaki', 'aji', 'wahyu'], 'zaki']
 data2=[]
-data3=()
+data3={}
 x = "zaki"
 
 def sorting():
@@ -64,7 +64,7 @@ def sorting():
             data2.append(data[i])
             quicksort(data2,0,len(data2))
     for j in data3:
-        quicksort(data3[j],data3[j])
+        quicksort(data3[j],0,len(data3[j]))
         data2.insert(j,data3[j])
     print("setelah di urutkan=",data2)
 
